@@ -1,16 +1,16 @@
 class Solution {
     public int[] plusOne(int[] digits) {
-    int n=digits.length-1;
-    while(digits[n]==9){
-        if(n==0){
-            int []res=new int[digits.length+1];
-            res[0]=1;
-            return res;
+        int n=digits.length;
+        for(int i=n-1;i>=0;i--){
+            if(digits[i]+1<10){
+                digits[i]++;
+                return digits;
+            }else{
+                digits[i]=0;
+            }
         }
-        digits[n]=0;
-        n-=1;
-    }
-    digits[n]+=1;
-    return digits;
+        digits=new int[n+1];
+        digits[0]=1;
+        return digits;
     }
 }
